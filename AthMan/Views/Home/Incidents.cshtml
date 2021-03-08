@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewData["Title"] = "Incidents";
+}
+
+<div class="row row-cols-4">
+    @foreach (Incident incident in ViewBag.Incidents)
+    {
+        <a href="#">
+            <div class="card col">
+                <div class="card-body">
+                    <h5 class="card-title">@incident.Title</h5>
+                    <p class="card-text">@incident.Employee.Name - @incident.Client.FullName</p>
+                </div>
+            </div>
+        </a>
+    }
+
+</div>
