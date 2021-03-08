@@ -23,20 +23,20 @@
     <div class="col-2">
         <nav>
             <ul class="list-group">
-                <li class="list-group-item">
+                <li class="list-group-item @(ViewData["Title"] == "Index" ? "active" : "")">
                     <a href="#">Home</a>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item @(ViewData["Title"] == "Items" ? "active" : "")">
                     <a asp-controller="Home" asp-action="Items">Items</a>
                 </li>
-                <li class="list-group-item">
-                    <a href="#">Employees</a>
+                <li class="list-group-item @(ViewData["Title"] == "Employees" ? "active" : "")">
+                    <a asp-controller="Home" asp-action="Employees">Employees</a>
                 </li>
-                <li class="list-group-item">
-                    <a href="#">Clients</a>
+                <li class="list-group-item @(ViewData["Title"] == "Clients" ? "active" : "")">
+                    <a asp-controller="Home" asp-action="Clients">Clients</a>
                 </li>
-                <li class="list-group-item">
-                    <a href="#">Incidents</a>
+                <li class="list-group-item @(ViewData["Title"] == "Incidents" ? "active" : "")">
+                    <a asp-controller="Home" asp-action="Incidents">Incidents</a>
                 </li>
             </ul>
 

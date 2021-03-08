@@ -1,16 +1,16 @@
 ﻿
 @{
-    ViewData["Title"] = "Items";
+    ViewData["Title"] = "Clients";
 }
 
 <div class="row row-cols-4">
-    @foreach (Item item in ViewBag.Items)
+    @foreach (Client client in ViewBag.Clients)
     {
         <a href="#">
             <div class="card col">
                 <div class="card-body">
-                    <h5 class="card-title">@item.Name</h5>
-                    <p class="card-text">@item.ReleaseDate - @item.YearlyPrice</p>
+                    <h5 class="card-title">@client.FullName</h5>
+                    <p class="card-text">@client.Email</p>
                 </div>
             </div>
         </a>

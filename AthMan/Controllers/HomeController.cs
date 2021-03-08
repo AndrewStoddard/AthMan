@@ -20,5 +20,22 @@ namespace AthMan.Controllers
             ViewBag.Items = context.Items;
             return View();
         }
+
+        public IActionResult Clients()
+        {
+            ViewBag.Clients = context.Clients;
+            return View();
+        }
+        public IActionResult Employees()
+        {
+            ViewBag.Employees = context.Employees;
+            return View();
+        }
+        public IActionResult Incidents()
+        {
+            ViewBag.Incidents = context.Incidents;
+            return View();
+        }
+
     }
 }
