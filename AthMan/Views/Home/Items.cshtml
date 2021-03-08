@@ -3,7 +3,17 @@
     ViewData["Title"] = "Items";
 }
 
-<div class="container-fluid col-6">
-
+<div class="row row-cols-4">
+    @foreach (Item item in ViewBag.Items)
+    {
+        <a>
+            <div class="card col">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <p class="card-text">@item.ReleaseDate - @item.YearlyPrice</p>
+                </div>
+            </div>
+        </a>
+    }
 
 </div>
