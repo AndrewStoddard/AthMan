@@ -43,6 +43,7 @@ namespace AthMan.Controllers
         public IActionResult Delete(int employeeId)
         {
             Employee employee = this.context.Employees.Find(employeeId);
+            this.context.SaveChanges();
             return View("DeleteEmployee", employee);
         }
 

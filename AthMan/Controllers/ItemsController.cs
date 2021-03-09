@@ -42,6 +42,7 @@ namespace AthMan.Controllers
         public IActionResult Delete(int itemId)
         {
             Item item = this.context.Items.Find(itemId);
+            this.context.SaveChanges();
             return View("DeleteItem", item);
         }
 

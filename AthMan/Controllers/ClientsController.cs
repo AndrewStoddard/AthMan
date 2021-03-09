@@ -53,6 +53,7 @@ namespace AthMan.Controllers
         public IActionResult Delete(int clientId)
         {
             Client client = this.context.Clients.Find(clientId);
+            this.context.SaveChanges();
             return View("DeleteClient", client);
         }
 
