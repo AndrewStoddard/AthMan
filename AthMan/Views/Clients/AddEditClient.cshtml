@@ -41,8 +41,10 @@
                     <input class="form-control" asp-for="State" disabled="@(ViewBag.Action == "View")" placeholder="State" />
                 </div>
                 <div class="form-group">
-                    <label asp-for="Country">Country</label>
-                    <input class="form-control" asp-for="Country" disabled="@(ViewBag.Action == "View")" placeholder="Country" />
+                    <label asp-for="CountryID">Country</label>
+                    <select disabled="@(ViewBag.Action == "View")" asp-for="CountryID"
+                            asp-items="@(new SelectList(ViewBag.Countries, "CountryID", "Name"))"
+                            class="form-control"></select>                
                 </div>
                 <div class="form-group">
                     <label asp-for="PostalCode">Postal Code</label>

@@ -1,14 +1,18 @@
 ﻿using AthMan.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AthMan.Controllers
 {
     public class ClientsController : Controller
     {
+        private List<Country> countries;
         private AthManContext context { get; set; }
         public ClientsController(AthManContext ctx)
         {
             this.context = ctx;
+            this.countries = this.context.Countries.OrderBy(c => c.Name).ToList();
         }
         
 
@@ -23,6 +27,8 @@ namespace AthMan.Controllers
         {
             Client client = this.context.Clients.Find(clientId);
             ViewBag.Action = "View";
+            ViewBag.Countries = this.countries;
+
             return View("AddEditClient", client);
         }
         [HttpGet]
@@ -30,6 +36,7 @@ namespace AthMan.Controllers
         {
             Client client = new Client();
             ViewBag.Action = "Add";
+            ViewBag.Countries = countries;
             return View("AddEditClient", client);
         }
 
@@ -38,6 +45,8 @@ namespace AthMan.Controllers
         {
             Client client = this.context.Clients.Find(clientId);
             ViewBag.Action = "Edit";
+            ViewBag.Countries = countries;
+
             return View("AddEditClient", client);
         }
         [HttpGet]
