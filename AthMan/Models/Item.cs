@@ -14,7 +14,7 @@ namespace AthMan.Models
 		public string Name { get; set; }
 
 		public decimal YearlyPrice { get; set; }
-
-		public DateTime ReleaseDate { get; set; } = DateTime.Now;
+		[DataType(DataType.Date)]
+		public DateTime ReleaseDate { get; set; } = DateTime.Now.Date;
 	}
 }

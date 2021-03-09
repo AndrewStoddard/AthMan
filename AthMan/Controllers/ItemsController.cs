@@ -16,7 +16,13 @@ namespace AthMan.Controllers
             ViewBag.Items = context.Items;
             return View();
         }
-
+        [HttpGet]
+        public IActionResult View(int itemId)
+        {
+            Item item = this.context.Items.Find(itemId);
+            ViewBag.Action = "View";
+            return View("AddEditItem", item);
+        }
         [HttpGet]
         public IActionResult Add()
         {
@@ -29,7 +35,7 @@ namespace AthMan.Controllers
         public IActionResult Edit(int itemId)
         {
             Item item = this.context.Items.Find(itemId);
-            ViewBag.Action = "Update";
+            ViewBag.Action = "Edit";
             return View("AddEditItem", item);
         }
         [HttpGet]
