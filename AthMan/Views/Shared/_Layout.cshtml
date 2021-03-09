@@ -20,31 +20,35 @@
            <h5>Helping to Manage the World's Athletes</h5>
        </div>
     </header>
-    <div class="col-2">
-        <nav>
-            <ul class="list-group">
-                <li class="list-group-item @(ViewData["Title"] == "Index" ? "active" : "")">
-                    <a href="#">Home</a>
-                </li>
-                <li class="list-group-item @(ViewData["Title"] == "Items" ? "active" : "")">
-                    <a asp-controller="Home" asp-action="Items">Items</a>
-                </li>
-                <li class="list-group-item @(ViewData["Title"] == "Employees" ? "active" : "")">
-                    <a asp-controller="Home" asp-action="Employees">Employees</a>
-                </li>
-                <li class="list-group-item @(ViewData["Title"] == "Clients" ? "active" : "")">
-                    <a asp-controller="Home" asp-action="Clients">Clients</a>
-                </li>
-                <li class="list-group-item @(ViewData["Title"] == "Incidents" ? "active" : "")">
-                    <a asp-controller="Home" asp-action="Incidents">Incidents</a>
-                </li>
-            </ul>
+    <div class="row row-cols-2">
+        <div class="col-2">
+            <nav>
+                <ul class="list-group">
+                    <li class="list-group-item @(ViewData["Title"] == "Index" ? "active" : "")">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="list-group-item @(ViewData["Title"] == "Items" ? "active" : "")">
+                        <a asp-controller="Items" asp-action="Items">Items</a>
+                    </li>
+                    <li class="list-group-item @(ViewData["Title"] == "Employees" ? "active" : "")">
+                        <a asp-controller="Employees" asp-action="Employees">Employees</a>
+                    </li>
+                    <li class="list-group-item @(ViewData["Title"] == "Clients" ? "active" : "")">
+                        <a asp-controller="Clients" asp-action="Clients">Clients</a>
+                    </li>
+                    <li class="list-group-item @(ViewData["Title"] == "Incidents" ? "active" : "")">
+                        <a asp-controller="Incidents" asp-action="Incidents">Incidents</a>
+                    </li>
+                </ul>
 
-        </nav>
+            </nav>
+        </div>
+        <div class="col-10">
+            @RenderBody()
+        </div>
     </div>
-    <div class="container-fluid">
-        @RenderBody()
-    </div>
+    
+    
 
 </body>
 </html>
