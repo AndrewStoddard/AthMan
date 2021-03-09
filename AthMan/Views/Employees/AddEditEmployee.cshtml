@@ -1,5 +1,45 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Employee
 @{
+    ViewData["Title"] = $"Employees - {ViewBag.Action}";
 }
+<div class="container-fluid">
+    <h1>@ViewBag.Action</h1>
+
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <input class="form-control" asp-for="Name" disabled="@(ViewBag.Action == "View")" placeholder="Name" />
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input class="form-control" asp-for="Email" disabled="@(ViewBag.Action == "View")" placeholder="Email" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Phone">Phone Number</label>
+            <input class="form-control" asp-for="Phone" disabled="@(ViewBag.Action == "View")" placeholder="Phone Number" />
+        </div>
+
+
+
+        <input type="hidden" asp-for="EmployeeID" />
+        @if (ViewBag.Action == "View")
+        {
+            <a asp-action="Edit" asp-route-employeeId="@Model.EmployeeID" class="btn btn-primary">Edit</a>
+            <a asp-action="Delete" asp-route-employeeId="@Model.EmployeeID" class="btn btn-primary">Delete</a>
+            <a asp-action="Employees" class="btn btn-primary">Back</a>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+            <a asp-action="Employees" class="btn btn-primary">Cancel</a>
+        }
+
+    </form>
+</div>
+
