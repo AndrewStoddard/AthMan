@@ -19,9 +19,9 @@ namespace AthMan.Models
 		public string Title { get; set; }
 
 		public string Description { get; set; }
-
+		[DataType(DataType.Date)]
 		public DateTime DateOpened { get; set; } = DateTime.Now;
-
+		[DataType(DataType.Date)]
 		public DateTime? DateClosed { get; set; } = null;
 	}
 }
