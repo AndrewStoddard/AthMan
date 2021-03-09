@@ -17,7 +17,57 @@ namespace AthMan.Controllers
             return View();
         }
 
-       
+        [HttpGet]
+        public IActionResult Add()
+        {
+            Item item = new Item();
+            ViewBag.Action = "Add";
+            return View("AddEditItem", item);
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int itemId)
+        {
+            Item item = this.context.Items.Find(itemId);
+            ViewBag.Action = "Update";
+            return View("AddEditItem", item);
+        }
+        [HttpGet]
+        public IActionResult Delete(int itemId)
+        {
+            Item item = this.context.Items.Find(itemId);
+            return View("DeleteItem", item);
+        }
+
+        [HttpPost]
+        public IActionResult AddEdit(Item item)
+        {
+            if(ModelState.IsValid)
+            {
+                if(item.ItemID == 0)
+                {
+                    this.context.Items.Add(item);
+                } else
+                {
+                    this.context.Items.Update(item);
+                }
+                this.context.SaveChanges();
+                return RedirectToAction("Items");
+            } else
+            {
+                return View("AddEdit", item);
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Delete(Item item)
+        {
+            this.context.Items.Remove(item);
+            this.context.SaveChanges();
+            return RedirectToAction("Items");
+        }
+
+
 
     }
 }
