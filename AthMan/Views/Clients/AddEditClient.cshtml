@@ -1,5 +1,68 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model Client
 @{
+    ViewData["Title"] = $"Clients - {ViewBag.Action}";
 }
+<div class="container-fluid">
+    <h1>@ViewBag.Action</h1>
+
+    <form asp-action="Edit" method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row row-cols-2">
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="FirstName">First Name</label>
+                    <input class="form-control" asp-for="FirstName" disabled="@(ViewBag.Action == "View")" placeholder="First Name" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName">Last Name</label>
+                    <input class="form-control" asp-for="LastName" disabled="@(ViewBag.Action == "View")" placeholder="Last Name" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email</label>
+                    <input class="form-control" asp-for="Email" disabled="@(ViewBag.Action == "View")" placeholder="Email" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone">Phone Number</label>
+                    <input class="form-control" asp-for="Phone" disabled="@(ViewBag.Action == "View")" placeholder="Phone Number" />
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <label asp-for="Address">Address</label>
+                    <input class="form-control" asp-for="Address" disabled="@(ViewBag.Action == "View")" placeholder="Address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="City">City</label>
+                    <input class="form-control" asp-for="City" disabled="@(ViewBag.Action == "View")" placeholder="City" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="State">State</label>
+                    <input class="form-control" asp-for="State" disabled="@(ViewBag.Action == "View")" placeholder="State" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Country">Country</label>
+                    <input class="form-control" asp-for="Country" disabled="@(ViewBag.Action == "View")" placeholder="Country" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="PostalCode">Postal Code</label>
+                    <input class="form-control" asp-for="PostalCode" disabled="@(ViewBag.Action == "View")" placeholder="Postal Code" />
+                </div>
+            </div>
+        </div>
+        <input type="hidden" asp-for="ClientID" />
+        @if (ViewBag.Action == "View")
+        {
+            <a asp-action="Edit" asp-route-clientId="@Model.ClientID" class="btn btn-primary">Edit</a>
+            <a asp-action="Delete" asp-route-clientId="@Model.ClientID" class="btn btn-primary">Delete</a>
+            <a asp-action="Clients" class="btn btn-primary">Back</a>
+        }
+        else
+        {
+            <button type="submit" class="btn btn-primary">@ViewBag.Action</button>
+            <a asp-action="Clients" class="btn btn-primary">Cancel</a>
+        }
+
+    </form>
+</div>
+
