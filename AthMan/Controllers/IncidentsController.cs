@@ -19,10 +19,25 @@ namespace AthMan.Controllers
             this.items = this.context.Items.OrderBy(i => i.ItemID).ToList();
         }
       
-        public IActionResult Incidents()
+        public IActionResult Incidents(string id = "all")
         {
-            ViewBag.Incidents = context.Incidents;
-            return View();
+            List<Incident> incidents;
+            if (id == "noemployee")
+            {
+                incidents = this.context.Incidents.Where(incident => incident.EmployeeID == null).ToList();
+            }
+            else if (id == "open")
+            {
+                incidents = this.context.Incidents.Where(incident => incident.DateClosed == null).ToList();
+
+            }
+            else
+            {
+                incidents = this.context.Incidents.ToList();
+            }
+
+            ViewBag.SelectedFilter = id;
+            return View(incidents);
         }
         [HttpGet]
         public IActionResult View(int incidentId)

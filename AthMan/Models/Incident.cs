@@ -12,7 +12,6 @@ namespace AthMan.Models
         [Required]
 		public int ItemID { get; set; }     // foreign key property
 		public Item Item { get; set; }   // navigation property
-        [Required]
 		public int? EmployeeID { get; set; }     // foreign key property - nullable
 		public Employee Employee { get; set; }   // navigation property
         [Required]
