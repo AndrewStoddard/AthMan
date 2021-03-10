@@ -14,14 +14,14 @@
                 <div class="col form-group">
                     <label asp-for="ClientID">Client</label>
                     <select asp-for="ClientID"
-                            asp-items="@new SelectList(ViewBag.Clients, "ClientID", "FullName")"
+                            asp-items="@(new SelectList(ViewBag.Clients, "ClientID", "FullName"))"
                             class="form-control">
                     </select>
                 </div>
                 <div class="col form-group">
                     <label asp-for="EmployeeID">Employee</label>
                     <select asp-for="EmployeeID"
-                            asp-items="@new SelectList(ViewBag.Employees, "EmployeeID", "Name")"
+                            asp-items="@(new SelectList(ViewBag.Employees, "EmployeeID", "Name"))"
                             class="form-control">
                         <option selected></option>
                     </select>
@@ -50,7 +50,7 @@
                 <div class="col form-group">
                     <label asp-for="ItemID">Item</label>
                     <select asp-for="ItemID"
-                            asp-items="@new SelectList(ViewBag.Items, "ItemID", "Name")"
+                            asp-items="@(new SelectList(ViewBag.Items, "ItemID", "Name"))"
                             class="form-control">
                     </select>
                 </div>

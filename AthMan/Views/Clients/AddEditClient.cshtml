@@ -37,7 +37,7 @@
 
                     <label asp-for="CountryID">Country</label>
                     <select disabled="@(ViewBag.Action == "View")" asp-for="CountryID"
-                            asp-items="@new SelectList(ViewBag.Countries, "CountryID", "Name")"
+                            asp-items="@(new SelectList(ViewBag.Countries, "CountryID", "Name"))"
                             class="form-control">
                     </select>
 
