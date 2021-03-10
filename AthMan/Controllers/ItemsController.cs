@@ -37,6 +37,7 @@ namespace AthMan.Controllers
         /// Itemses this instance.
         /// </summary>
         /// <returns>IActionResult.</returns>
+        [Route("/{controller}")]
         public IActionResult Items()
         {
             return View(context.Items.ToList());
@@ -48,6 +49,7 @@ namespace AthMan.Controllers
         /// <param name="itemId">The item identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{itemId}")]
         public IActionResult View(int itemId)
         {
             var item = context.Items.Find(itemId);
@@ -60,6 +62,7 @@ namespace AthMan.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}")]
         public IActionResult Add()
         {
             var item = new Item();
@@ -73,6 +76,7 @@ namespace AthMan.Controllers
         /// <param name="itemId">The item identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{itemId}")]
         public IActionResult Edit(int itemId)
         {
             var item = context.Items.Find(itemId);
@@ -86,6 +90,7 @@ namespace AthMan.Controllers
         /// <param name="itemId">The item identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{itemId}")]
         public IActionResult Delete(int itemId)
         {
             var item = context.Items.Find(itemId);

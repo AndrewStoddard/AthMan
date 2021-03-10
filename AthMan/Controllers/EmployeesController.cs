@@ -37,6 +37,7 @@ namespace AthMan.Controllers
         /// Employeeses this instance.
         /// </summary>
         /// <returns>IActionResult.</returns>
+        [Route("/{controller}")]
         public IActionResult Employees()
         {
             return View(context.Employees.ToList());
@@ -48,6 +49,7 @@ namespace AthMan.Controllers
         /// <param name="employeeId">The employee identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{employeeId}")]
         public IActionResult View(int employeeId)
         {
             var employee = context.Employees.Find(employeeId);
@@ -60,6 +62,7 @@ namespace AthMan.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}")]
         public IActionResult Add()
         {
             var employee = new Employee();
@@ -73,6 +76,7 @@ namespace AthMan.Controllers
         /// <param name="employeeId">The employee identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{employeeId}")]
         public IActionResult Edit(int employeeId)
         {
             var employee = context.Employees.Find(employeeId);
@@ -86,6 +90,7 @@ namespace AthMan.Controllers
         /// <param name="employeeId">The employee identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{employeeId}")]
         public IActionResult Delete(int employeeId)
         {
             var employee = context.Employees.Find(employeeId);

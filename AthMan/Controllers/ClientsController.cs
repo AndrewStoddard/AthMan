@@ -45,6 +45,7 @@ namespace AthMan.Controllers
         /// Clientses this instance.
         /// </summary>
         /// <returns>IActionResult.</returns>
+        [Route("/{controller}")]
         public IActionResult Clients()
         {
             return View(context.Clients.ToList());
@@ -56,6 +57,7 @@ namespace AthMan.Controllers
         /// <param name="clientId">The client identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{clientId}")]
         public IActionResult View(int clientId)
         {
             var client = context.Clients.Find(clientId);
@@ -70,6 +72,7 @@ namespace AthMan.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}")]
         public IActionResult Add()
         {
             var client = new Client();
@@ -84,6 +87,7 @@ namespace AthMan.Controllers
         /// <param name="clientId">The client identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{clientId}")]
         public IActionResult Edit(int clientId)
         {
             var client = context.Clients.Find(clientId);
@@ -99,6 +103,7 @@ namespace AthMan.Controllers
         /// <param name="clientId">The client identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{clientId}")]
         public IActionResult Delete(int clientId)
         {
             var client = context.Clients.Find(clientId);

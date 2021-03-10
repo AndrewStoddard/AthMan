@@ -55,6 +55,7 @@ namespace AthMan.Controllers
         /// </summary>
         /// <param name="id">The identifier.</param>
         /// <returns>IActionResult.</returns>
+        [Route("/{controller}/{id?}")]
         public IActionResult Incidents(string id = "all")
         {
             List<Incident> incidents;
@@ -75,6 +76,7 @@ namespace AthMan.Controllers
         /// <param name="incidentId">The incident identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{incidentId}")]
         public IActionResult View(int incidentId)
         {
             var incident = context.Incidents.Find(incidentId);
@@ -90,6 +92,7 @@ namespace AthMan.Controllers
         /// </summary>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}")]
         public IActionResult Add()
         {
             var incident = new Incident();
@@ -106,6 +109,7 @@ namespace AthMan.Controllers
         /// <param name="incidentId">The incident identifier.</param>
         /// <returns>IActionResult.</returns>
         [HttpGet]
+        [Route("/{controller}/{action}/{incidentId}")]
         public IActionResult Edit(int incidentId)
         {
             var incident = context.Incidents.Find(incidentId);
