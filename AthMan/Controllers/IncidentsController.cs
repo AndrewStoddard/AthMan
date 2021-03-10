@@ -73,7 +73,7 @@ namespace AthMan.Controllers
       
 
         [HttpPost]
-        public IActionResult AddEdit(Incident incident)
+        public IActionResult AddEdit(Incident incident, string type)
         {
             if (ModelState.IsValid)
             {
@@ -95,6 +95,7 @@ namespace AthMan.Controllers
                 ViewBag.Clients = clients;
                 ViewBag.Employees = employees;
                 ViewBag.Items = items;
+                ViewBag.Action = type;
                 return View("AddEditIncident", incident);
             }
         }

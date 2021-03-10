@@ -48,7 +48,7 @@ namespace AthMan.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddEdit(Employee employee)
+        public IActionResult AddEdit(Employee employee, string type)
         {
             if (ModelState.IsValid)
             {
@@ -63,10 +63,12 @@ namespace AthMan.Controllers
                     TempData["message"] = $"{employee.Name} has been Edited.";
                 }
                 this.context.SaveChanges();
+
                 return RedirectToAction("Employees");
             }
             else
             {
+                ViewBag.Action = type;
                 return View("AddEditEmployee", employee);
             }
         }

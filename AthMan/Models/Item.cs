@@ -13,6 +13,7 @@ namespace AthMan.Models
         [Required]
 		public string Name { get; set; }
         [Required]
+        [Range(0.01, Double.MaxValue)]
         public decimal YearlyPrice { get; set; }
         [Required]
 		[DataType(DataType.Date)]

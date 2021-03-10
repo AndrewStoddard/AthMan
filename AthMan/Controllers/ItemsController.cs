@@ -47,7 +47,7 @@ namespace AthMan.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddEdit(Item item)
+        public IActionResult AddEdit(Item item, string type)
         {
             if(ModelState.IsValid)
             {
@@ -65,6 +65,7 @@ namespace AthMan.Controllers
                 return RedirectToAction("Items");
             } else
             {
+                ViewBag.Action = type;
                 return View("AddEditItem", item);
             }
         }

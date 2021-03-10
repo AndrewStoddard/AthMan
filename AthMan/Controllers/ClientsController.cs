@@ -58,7 +58,7 @@ namespace AthMan.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddEdit(Client client)
+        public IActionResult AddEdit(Client client, string type)
         {
             if (ModelState.IsValid)
             {
@@ -77,6 +77,7 @@ namespace AthMan.Controllers
             }
             else
             {
+                ViewBag.Action = type;
                 ViewBag.Countries = this.countries;
                 return View("AddEditClient", client);
             }

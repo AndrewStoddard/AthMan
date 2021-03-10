@@ -5,45 +5,76 @@
 <div class="container-fluid" style="padding: 20px; margin: 10px;">
     <h1>@ViewBag.Action</h1>
 
-    <form asp-action="Edit" method="post">
+    <form asp-action="AddEdit" asp-route-type="@ViewBag.Action" method="post">
         <div asp-validation-summary="All" class="text-danger"></div>
 
         <div class="row row-cols-2">
-            <div class="col form-group">
-                <label asp-for="ClientID">Client</label>
-                <select disabled="@(ViewBag.Action == "View" || ViewBag.Action == "Edit")" asp-for="ClientID"
-                        asp-items="@(new SelectList(ViewBag.Clients, "ClientID", "FullName"))"
-                        class="form-control"></select>
-            </div>
-            <div class="col form-group">
-                <label asp-for="EmployeeID">Employee</label>
-                <select disabled="@(ViewBag.Action == "View" || ViewBag.Action == "Edit")" asp-for="EmployeeID"
-                        asp-items="@(new SelectList(ViewBag.Employees, "EmployeeID", "Name"))"
-                        class="form-control"></select>
-            </div>
+            @if (ViewBag.Action == "Add")
+            {
+                <div class="col form-group">
+                    <label asp-for="ClientID">Client</label>
+                    <select asp-for="ClientID"
+                            asp-items="@(new SelectList(ViewBag.Clients, "ClientID", "FullName"))"
+                            class="form-control"></select>
+                </div>
+                <div class="col form-group">
+                    <label asp-for="EmployeeID">Employee</label>
+                    <select asp-for="EmployeeID"
+                            asp-items="@(new SelectList(ViewBag.Employees, "EmployeeID", "Name"))"
+                            class="form-control"></select>
+                </div>
+            }
+            else
+            {
+                <div class="col form-group">
+                    <label asp-for="ClientID">Client</label>
+                    <input class="form-control" value="@Model.Client.FullName" readonly="readonly"/>
+                    <input type="hidden" asp-for="ClientID" />
+                </div>
+                <div class="col form-group">
+                    <label asp-for="EmployeeID">Employee</label>
+                    <input class="form-control" value="@Model.Employee.Name" readonly="readonly"/>
+
+                    <input type="hidden" asp-for="EmployeeID"/>
+                </div>
+            }
+
 
         </div>
         <div class="row">
-            <div class="col form-group">
-                <label asp-for="ItemID">Item</label>
-                <select disabled="@(ViewBag.Action == "View" || ViewBag.Action == "Edit")" asp-for="ItemID"
-                        asp-items="@(new SelectList(ViewBag.Items, "ItemID", "Name"))"
-                        class="form-control"></select>
-            </div>
+            @if (ViewBag.Action == "Add")
+            {
+                <div class="col form-group">
+                    <label asp-for="ItemID">Item</label>
+                    <select asp-for="ItemID"
+                            asp-items="@(new SelectList(ViewBag.Items, "ItemID", "Name"))"
+                            class="form-control"></select>
+                </div>
+            }
+            else
+            {
+        <div class="col form-group">
+            <label asp-for="ItemID">Item</label>
+            <input class="form-control" value="@Model.Item.Name" readonly="readonly" />
+            <input type="hidden" asp-for="ItemID" />
+        </div>
+            }
+
+            
             <div class="col form-group">
                 <label asp-for="DateOpened">Date Opened</label>
-                <input class="form-control" asp-for="DateOpened" disabled="@(ViewBag.Action == "View" || ViewBag.Action == "Edit")" placeholder="Date Opened" />
+                <input class="form-control" asp-for="DateOpened" readonly="@(ViewBag.Action != "Add")" placeholder="Date Opened"/>
             </div>
             <div class="col form-group">
                 <label asp-for="DateClosed">Date Closed</label>
-                <input class="form-control" asp-for="DateClosed" disabled="@(ViewBag.Action == "View" || Model.DateClosed != null)" placeholder="Date Closed" />
+                <input class="form-control" asp-for="DateClosed" readonly="@(ViewBag.Action == "View" || Model.DateClosed != null)" placeholder="Date Closed"/>
             </div>
         </div>
 
         <div class="row">
             <div class="col form-group">
                 <label asp-for="Title">Title</label>
-                <input class="form-control" asp-for="Title" disabled="@(ViewBag.Action == "View" || ViewBag.Action == "Edit")" placeholder="Title"/>
+                <input class="form-control" asp-for="Title" readonly="@(ViewBag.Action != "Add")" placeholder="Title"/>
             </div>
            
         </div>
@@ -51,7 +82,7 @@
         <div class="row">
             <div class="col form-group">
                 <label asp-for="Description">Description</label>
-                <textarea class="form-control" asp-for="Description" disabled="@(ViewBag.Action == "View" || ViewBag.Action == "Edit")" placeholder="Despcription">@Model.Description</textarea>    
+                <textarea class="form-control" aspreadonlyfor="Description" readonly="@(ViewBag.Action != "Add")" asp-for="Description" placeholder="Despcription">@Model.Description</textarea>    
             </div>
             
         </div>

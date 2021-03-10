@@ -22,10 +22,12 @@ namespace AthMan.Models
         [Required]
 		public string CountryID { get; set; }
 		public Country Country { get; set; }
+        [Required] 
+        [Phone]
+        public string Phone { get; set; }
         [Required]
-		public string Phone { get; set; }
-        [Required]
-		public string Email { get; set; }
+        [EmailAddress]
+        public string Email { get; set; }
 
 		public string FullName => FirstName + " " + LastName;   // read-only property
 	}
