@@ -1,12 +1,11 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Incidents";
 }
 
 <div class="row row-cols-4">
     @foreach (Incident incident in ViewBag.Incidents)
     {
-        <a href="#">
+        <a asp-action="View" asp-controller="Incidents" asp-route-incidentId="@incident.IncidentID">
             <div class="card h-100 col">
                 <div class="card-body">
                     <h5 class="card-title">@incident.Title</h5>
@@ -16,4 +15,7 @@
         </a>
     }
 
+</div>
+<div class="container-fluid">
+    <a class="btn btn-primary" asp-action="Add" asp-controller="Incidents">Add New</a>
 </div>

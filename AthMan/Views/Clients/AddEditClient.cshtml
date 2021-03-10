@@ -12,16 +12,13 @@
                 <div class="form-group">
                     <label asp-for="FirstName">First Name</label>
                     <input class="form-control" asp-for="FirstName" disabled="@(ViewBag.Action == "View")" placeholder="First Name" />
-                </div>
-                <div class="form-group">
+
                     <label asp-for="LastName">Last Name</label>
                     <input class="form-control" asp-for="LastName" disabled="@(ViewBag.Action == "View")" placeholder="Last Name" />
-                </div>
-                <div class="form-group">
+
                     <label asp-for="Email">Email</label>
                     <input class="form-control" asp-for="Email" disabled="@(ViewBag.Action == "View")" placeholder="Email" />
-                </div>
-                <div class="form-group">
+
                     <label asp-for="Phone">Phone Number</label>
                     <input class="form-control" asp-for="Phone" disabled="@(ViewBag.Action == "View")" placeholder="Phone Number" />
                 </div>
@@ -31,22 +28,18 @@
                 <div class="form-group">
                     <label asp-for="Address">Address</label>
                     <input class="form-control" asp-for="Address" disabled="@(ViewBag.Action == "View")" placeholder="Address" />
-                </div>
-                <div class="form-group">
+
                     <label asp-for="City">City</label>
                     <input class="form-control" asp-for="City" disabled="@(ViewBag.Action == "View")" placeholder="City" />
-                </div>
-                <div class="form-group">
+
                     <label asp-for="State">State</label>
                     <input class="form-control" asp-for="State" disabled="@(ViewBag.Action == "View")" placeholder="State" />
-                </div>
-                <div class="form-group">
+
                     <label asp-for="CountryID">Country</label>
                     <select disabled="@(ViewBag.Action == "View")" asp-for="CountryID"
                             asp-items="@(new SelectList(ViewBag.Countries, "CountryID", "Name"))"
                             class="form-control"></select>                
-                </div>
-                <div class="form-group">
+
                     <label asp-for="PostalCode">Postal Code</label>
                     <input class="form-control" asp-for="PostalCode" disabled="@(ViewBag.Action == "View")" placeholder="Postal Code" />
                 </div>
