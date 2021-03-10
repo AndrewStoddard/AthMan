@@ -65,7 +65,7 @@ namespace AthMan.Controllers
             }
             else
             {
-                return View("AddEdit", employee);
+                return View("AddEditEmployee", employee);
             }
         }
 

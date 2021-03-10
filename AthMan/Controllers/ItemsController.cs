@@ -62,7 +62,7 @@ namespace AthMan.Controllers
                 return RedirectToAction("Items");
             } else
             {
-                return View("AddEdit", item);
+                return View("AddEditItem", item);
             }
         }
 

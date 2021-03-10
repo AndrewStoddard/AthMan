@@ -75,7 +75,8 @@ namespace AthMan.Controllers
             }
             else
             {
-                return View("AddEdit", client);
+                ViewBag.Countries = this.countries;
+                return View("AddEditClient", client);
             }
         }
 
