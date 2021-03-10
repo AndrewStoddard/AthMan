@@ -12,6 +12,9 @@
             border-color: skyblue !important;
             color: black;
         }
+        a { color: black }
+        a:hover { color: blue; }
+        
 
         .list-group-item { background: white; }
 
@@ -26,40 +29,43 @@
         <h5>Helping to Manage the World's Athletes</h5>
     </div>
 </header>
-<div class="row row-cols-md-2 row-cols-sm-1">
-    <div class="col-md-2">
-        <nav>
-            <ul class="list-group flex-sm-column flex-row">
-                <li class="list-group-item @(ViewData["Title"] == "Index" ? "active" : "")">
-                    <a asp-controller="Home" asp-action="Index">Home</a>
-                </li>
-                <li class="list-group-item @(ViewData["Title"] == "Items" ? "active" : "")">
-                    <a asp-controller="Items" asp-action="Items">Items</a>
-                </li>
-                <li class="list-group-item @(ViewData["Title"] == "Employees" ? "active" : "")">
-                    <a asp-controller="Employees" asp-action="Employees">Employees</a>
-                </li>
-                <li class="list-group-item @(ViewData["Title"] == "Clients" ? "active" : "")">
-                    <a asp-controller="Clients" asp-action="Clients">Clients</a>
-                </li>
-                <li class="list-group-item @(ViewData["Title"] == "Incidents" ? "active" : "")">
-                    <a asp-controller="Incidents" asp-action="Incidents">Incidents</a>
-                </li>
-            </ul>
+<div class="container-fluid">
+    <div class="row row-cols-md-2 row-cols-sm-1">
+        <div class="col-md-2">
+            <nav>
+                <ul class="list-group flex-sm-column flex-row">
+                    <li class="list-group-item @(ViewData["Title"] == "Index" ? "active" : "")">
+                        <a asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="list-group-item @(ViewData["Title"] == "Items" ? "active" : "")">
+                        <a asp-controller="Items" asp-action="Items">Items</a>
+                    </li>
+                    <li class="list-group-item @(ViewData["Title"] == "Employees" ? "active" : "")">
+                        <a asp-controller="Employees" asp-action="Employees">Employees</a>
+                    </li>
+                    <li class="list-group-item @(ViewData["Title"] == "Clients" ? "active" : "")">
+                        <a asp-controller="Clients" asp-action="Clients">Clients</a>
+                    </li>
+                    <li class="list-group-item @(ViewData["Title"] == "Incidents" ? "active" : "")">
+                        <a asp-controller="Incidents" asp-action="Incidents">Incidents</a>
+                    </li>
+                </ul>
 
-        </nav>
+            </nav>
+        </div>
+        <div class="col-10">
+            @RenderBody()
+        </div>
+
     </div>
-    <div class="col-10">
-        @RenderBody()
-    </div>
+    @if (TempData["message"] != null)
+    {
+        <div class="alert alert-secondary w-25 fixed-bottom float-right" style="margin-left: 20px" role="alert">
+            @TempData["message"]
+        </div>
+    }
 
 </div>
-@if (TempData["message"] != null)
-{
-    <div class="alert alert-secondary w-25 fixed-bottom float-right" style="margin-left: 20px" role="alert">
-        @TempData["message"]
-    </div>
-}
 
 
 
