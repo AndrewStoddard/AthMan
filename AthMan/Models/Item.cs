@@ -8,12 +8,13 @@ namespace AthMan.Models
     public class Item
     {
 		public int ItemID { get; set; }
-
+        [Required]
 		public string ItemCode { get; set; }
-
+        [Required]
 		public string Name { get; set; }
-
-		public decimal YearlyPrice { get; set; }
+        [Required]
+        public decimal YearlyPrice { get; set; }
+        [Required]
 		[DataType(DataType.Date)]
 		public DateTime ReleaseDate { get; set; } = DateTime.Now.Date;
 	}

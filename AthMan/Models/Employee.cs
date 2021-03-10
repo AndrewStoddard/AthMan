@@ -5,12 +5,12 @@ namespace AthMan.Models
 {
     public class Employee
     {
-		public int EmployeeID { get; set; }	   
-
+		public int EmployeeID { get; set; }
+        [Required]
 		public string Name { get; set; }
-
+        [Required]
 		public string Email { get; set; }
-
+        [Required]
 		public string Phone { get; set; }
 	}
 }
