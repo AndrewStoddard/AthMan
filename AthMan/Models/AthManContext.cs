@@ -1,21 +1,61 @@
-﻿using System;
+﻿// ***********************************************************************
+// Author           : Andrew Stoddard
+// Created          : 03-10-2021
+//
+// Last Modified By : Andrew Stoddard
+// Last Modified On : 03-10-2021
+// ***********************************************************************
+using System;
 using Microsoft.EntityFrameworkCore;
 
 namespace AthMan.Models
 {
+    /// <summary>
+    /// Class AthManContext.
+    /// Implements the <see cref="Microsoft.EntityFrameworkCore.DbContext" />
+    /// </summary>
+    /// <seealso cref="Microsoft.EntityFrameworkCore.DbContext" />
     public class AthManContext : DbContext
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AthManContext"/> class.
+        /// </summary>
+        /// <param name="options">The options.</param>
         public AthManContext(DbContextOptions<AthManContext> options)
             : base(options)
         {
         }
 
+        /// <summary>
+        /// Gets or sets the items.
+        /// </summary>
+        /// <value>The items.</value>
         public DbSet<Item> Items { get; set; }
+        /// <summary>
+        /// Gets or sets the employees.
+        /// </summary>
+        /// <value>The employees.</value>
         public DbSet<Employee> Employees { get; set; }
+        /// <summary>
+        /// Gets or sets the countries.
+        /// </summary>
+        /// <value>The countries.</value>
         public DbSet<Country> Countries { get; set; }
+        /// <summary>
+        /// Gets or sets the clients.
+        /// </summary>
+        /// <value>The clients.</value>
         public DbSet<Client> Clients { get; set; }
+        /// <summary>
+        /// Gets or sets the incidents.
+        /// </summary>
+        /// <value>The incidents.</value>
         public DbSet<Incident> Incidents { get; set; }
 
+        /// <summary>
+        /// Called when [model creating].
+        /// </summary>
+        /// <param name="modelBuilder">The model builder.</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Item>().HasData(
