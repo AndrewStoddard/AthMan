@@ -54,11 +54,14 @@ namespace AthMan.Controllers
                 if(item.ItemID == 0)
                 {
                     this.context.Items.Add(item);
+                    TempData["message"] = $"{item.Name} has been added.";
                 } else
                 {
                     this.context.Items.Update(item);
+                    TempData["message"] = $"{item.Name} has been Edited.";
                 }
                 this.context.SaveChanges();
+                TempData["message"] = $"{item.Name} has been added.";
                 return RedirectToAction("Items");
             } else
             {
@@ -71,6 +74,7 @@ namespace AthMan.Controllers
         {
             this.context.Items.Remove(item);
             this.context.SaveChanges();
+            TempData["message"] = $"{item.Name} has been Removed.";
             return RedirectToAction("Items");
         }
 

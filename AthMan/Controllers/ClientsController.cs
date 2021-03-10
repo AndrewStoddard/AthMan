@@ -65,10 +65,12 @@ namespace AthMan.Controllers
                 if (client.ClientID == 0)
                 {
                     this.context.Clients.Add(client);
+                    TempData["message"] = $"{client.FullName} has been added.";
                 }
                 else
                 {
                     this.context.Clients.Update(client);
+                    TempData["message"] = $"{client.FullName} has been Edited.";
                 }
                 this.context.SaveChanges();
                 return RedirectToAction("Clients");
@@ -85,6 +87,7 @@ namespace AthMan.Controllers
         {
             this.context.Clients.Remove(client);
             this.context.SaveChanges();
+            TempData["message"] = $"{client.FullName} has been Removed.";
             return RedirectToAction("Clients");
         }
 

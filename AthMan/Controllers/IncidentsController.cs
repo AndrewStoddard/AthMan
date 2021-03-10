@@ -80,10 +80,12 @@ namespace AthMan.Controllers
                 if (incident.IncidentID == 0)
                 {
                     this.context.Incidents.Add(incident);
+                    TempData["message"] = $"Incident has been added.";
                 }
                 else
                 {
                     this.context.Incidents.Update(incident);
+                    TempData["message"] = $"Incident {incident.IncidentID} has been Edited.";
                 }
                 this.context.SaveChanges();
                 return RedirectToAction("Incidents");

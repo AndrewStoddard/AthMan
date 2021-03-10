@@ -55,10 +55,12 @@ namespace AthMan.Controllers
                 if (employee.EmployeeID == 0)
                 {
                     this.context.Employees.Add(employee);
+                    TempData["message"] = $"{employee.Name} has been added.";
                 }
                 else
                 {
                     this.context.Employees.Update(employee);
+                    TempData["message"] = $"{employee.Name} has been Edited.";
                 }
                 this.context.SaveChanges();
                 return RedirectToAction("Employees");
@@ -74,6 +76,7 @@ namespace AthMan.Controllers
         {
             this.context.Employees.Remove(employee);
             this.context.SaveChanges();
+            TempData["message"] = $"{employee.Name} has been Removed.";
             return RedirectToAction("Employees");
         }
 
