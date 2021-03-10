@@ -1,10 +1,11 @@
-﻿
+﻿@model List<Client>
+
 @{
     ViewData["Title"] = "Clients";
 }
 
-<div class="row row-cols-1 row-cols-lg-5 row-cols-sm-2 row-cols-md-4">
-    @foreach (Client client in ViewBag.Clients)
+<div class="row row-cols-1 row-cols-lg-6 row-cols-sm-2 row-cols-md-4">
+    @foreach (var client in Model)
     {
         <a asp-action="View" asp-controller="Clients" asp-route-clientId="@client.ClientID">
             <div class="card h-100 col">
@@ -15,9 +16,9 @@
             </div>
         </a>
     }
-    
+
 
 </div>
-<div class="container-fluid">
+<div class="container-fluid" style="margin-top: 20px;">
     <a class="btn btn-primary" asp-action="Add" asp-controller="Clients">Add New</a>
 </div>

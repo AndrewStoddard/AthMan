@@ -2,19 +2,25 @@
 @{
     ViewData["Title"] = "Incidents";
 }
-<div class="row" style="margin-bottom: 50px;">
+<div class="row" style="margin-bottom: 50px; margin-top: 20px;">
 
     <div class="col">
         <ul class="list-group list-group-horizontal-sm">
-            <li class="list-group-item @(ViewBag.SelectedFilter == "all" ? "active" : "")"><a asp-action="Incidents" asp-controller="Incidents" asp-route-id="All">All</a></li>
-            <li class="list-group-item @(ViewBag.SelectedFilter == "open" ? "active" : "")"><a asp-action="Incidents" asp-controller="Incidents" asp-route-id="Open">Open</a></li>
-            <li class="list-group-item @(ViewBag.SelectedFilter == "noemployee" ? "active" : "")"><a asp-action="Incidents" asp-controller="Incidents" asp-route-id="NoEmployee">All Without Employee</a></li>
+            <li class="list-group-item @(ViewBag.SelectedFilter == "all" ? "active" : "")">
+                <a asp-action="Incidents" asp-controller="Incidents" asp-route-id="All">All</a>
+            </li>
+            <li class="list-group-item @(ViewBag.SelectedFilter == "open" ? "active" : "")">
+                <a asp-action="Incidents" asp-controller="Incidents" asp-route-id="Open">Open</a>
+            </li>
+            <li class="list-group-item @(ViewBag.SelectedFilter == "noemployee" ? "active" : "")">
+                <a asp-action="Incidents" asp-controller="Incidents" asp-route-id="NoEmployee">All Without Employee</a>
+            </li>
         </ul>
     </div>
 
 </div>
-<div class="row row-cols-1 row-cols-lg-5 row-cols-sm-2 row-cols-md-4">
-    @foreach (Incident incident in @Model)
+<div class="row row-cols-1 row-cols-lg-6 row-cols-sm-2 row-cols-md-4">
+    @foreach (var incident in Model)
     {
         <a asp-action="View" asp-controller="Incidents" asp-route-incidentId="@incident.IncidentID">
             <div class="card h-100 col">
@@ -26,9 +32,6 @@
         </a>
     }
 </div>
-<div class="row">
-    <div class="col">
-        <a class="btn btn-primary" asp-action="Add" asp-controller="Incidents">Add New</a>
-    </div>
-
+<div class="container-fluid" style="margin-top: 20px;">
+    <a class="btn btn-primary" asp-action="Add" asp-controller="Incidents">Add New</a>
 </div>

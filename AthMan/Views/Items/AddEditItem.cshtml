@@ -9,28 +9,27 @@
         <div asp-validation-summary="All" class="text-danger"></div>
         <div class="form-group">
             <label asp-for="ItemCode">Item Code</label>
-            <input class="form-control" asp-for="ItemCode" disabled="@(ViewBag.Action == "View")" placeholder="Item Code" />
+            <input class="form-control" asp-for="ItemCode" disabled="@(ViewBag.Action == "View")" placeholder="Item Code"/>
         </div>
 
         <div class="form-group">
             <label asp-for="Name">Name</label>
-            <input class="form-control" asp-for="Name" disabled="@(ViewBag.Action == "View")" placeholder="Name" />
+            <input class="form-control" asp-for="Name" disabled="@(ViewBag.Action == "View")" placeholder="Name"/>
         </div>
 
 
         <div class="form-group">
             <label asp-for="YearlyPrice">Yearly Price</label>
-            <input class="form-control" asp-for="YearlyPrice" disabled="@(ViewBag.Action == "View")" placeholder="Yearly Price" />
+            <input class="form-control" asp-for="YearlyPrice" disabled="@(ViewBag.Action == "View")" placeholder="Yearly Price"/>
         </div>
 
         <div class="form-group">
             <label asp-for="ReleaseDate">Release Date</label>
-            <input class="form-control" asp-for="ReleaseDate" disabled="@(ViewBag.Action == "View")" placeholder="Release Date" />
+            <input class="form-control" asp-for="ReleaseDate" disabled="@(ViewBag.Action == "View")" placeholder="Release Date"/>
         </div>
 
 
-
-        <input type="hidden" asp-for="ItemID" />
+        <input type="hidden" asp-for="ItemID"/>
         @if (ViewBag.Action == "View")
         {
             <a asp-action="Edit" asp-route-itemId="@Model.ItemID" class="btn btn-primary">Edit</a>
@@ -45,4 +44,3 @@
 
     </form>
 </div>
-

@@ -11,41 +11,42 @@
             <div class="col">
                 <div class="form-group">
                     <label asp-for="FirstName">First Name</label>
-                    <input class="form-control" asp-for="FirstName" disabled="@(ViewBag.Action == "View")" placeholder="First Name" />
+                    <input class="form-control" asp-for="FirstName" disabled="@(ViewBag.Action == "View")" placeholder="First Name"/>
 
                     <label asp-for="LastName">Last Name</label>
-                    <input class="form-control" asp-for="LastName" disabled="@(ViewBag.Action == "View")" placeholder="Last Name" />
+                    <input class="form-control" asp-for="LastName" disabled="@(ViewBag.Action == "View")" placeholder="Last Name"/>
 
                     <label asp-for="Email">Email</label>
-                    <input class="form-control" asp-for="Email" disabled="@(ViewBag.Action == "View")" placeholder="Email" />
+                    <input class="form-control" asp-for="Email" disabled="@(ViewBag.Action == "View")" placeholder="Email"/>
 
                     <label asp-for="Phone">Phone Number</label>
-                    <input class="form-control" asp-for="Phone" disabled="@(ViewBag.Action == "View")" placeholder="Phone Number" />
+                    <input class="form-control" asp-for="Phone" disabled="@(ViewBag.Action == "View")" placeholder="Phone Number"/>
                 </div>
             </div>
 
             <div class="col">
                 <div class="form-group">
                     <label asp-for="Address">Address</label>
-                    <input class="form-control" asp-for="Address" disabled="@(ViewBag.Action == "View")" placeholder="Address" />
+                    <input class="form-control" asp-for="Address" disabled="@(ViewBag.Action == "View")" placeholder="Address"/>
 
                     <label asp-for="City">City</label>
-                    <input class="form-control" asp-for="City" disabled="@(ViewBag.Action == "View")" placeholder="City" />
+                    <input class="form-control" asp-for="City" disabled="@(ViewBag.Action == "View")" placeholder="City"/>
 
                     <label asp-for="State">State</label>
-                    <input class="form-control" asp-for="State" disabled="@(ViewBag.Action == "View")" placeholder="State" />
+                    <input class="form-control" asp-for="State" disabled="@(ViewBag.Action == "View")" placeholder="State"/>
 
                     <label asp-for="CountryID">Country</label>
                     <select disabled="@(ViewBag.Action == "View")" asp-for="CountryID"
-                            asp-items="@(new SelectList(ViewBag.Countries, "CountryID", "Name"))"
-                            class="form-control"></select>                
+                            asp-items="@new SelectList(ViewBag.Countries, "CountryID", "Name")"
+                            class="form-control">
+                    </select>
 
                     <label asp-for="PostalCode">Postal Code</label>
-                    <input class="form-control" asp-for="PostalCode" disabled="@(ViewBag.Action == "View")" placeholder="Postal Code" />
+                    <input class="form-control" asp-for="PostalCode" disabled="@(ViewBag.Action == "View")" placeholder="Postal Code"/>
                 </div>
             </div>
         </div>
-        <input type="hidden" asp-for="ClientID" />
+        <input type="hidden" asp-for="ClientID"/>
         @if (ViewBag.Action == "View")
         {
             <a asp-action="Edit" asp-route-clientId="@Model.ClientID" class="btn btn-primary">Edit</a>
@@ -60,4 +61,3 @@
 
     </form>
 </div>
-

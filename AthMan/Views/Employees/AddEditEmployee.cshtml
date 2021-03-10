@@ -11,23 +11,22 @@
 
         <div class="form-group">
             <label asp-for="Name">Name</label>
-            <input class="form-control" asp-for="Name" disabled="@(ViewBag.Action == "View")" placeholder="Name" />
+            <input class="form-control" asp-for="Name" disabled="@(ViewBag.Action == "View")" placeholder="Name"/>
         </div>
 
 
         <div class="form-group">
             <label asp-for="Email">Email</label>
-            <input class="form-control" asp-for="Email" disabled="@(ViewBag.Action == "View")" placeholder="Email" />
+            <input class="form-control" asp-for="Email" disabled="@(ViewBag.Action == "View")" placeholder="Email"/>
         </div>
 
         <div class="form-group">
             <label asp-for="Phone">Phone Number</label>
-            <input class="form-control" asp-for="Phone" disabled="@(ViewBag.Action == "View")" placeholder="Phone Number" />
+            <input class="form-control" asp-for="Phone" disabled="@(ViewBag.Action == "View")" placeholder="Phone Number"/>
         </div>
 
 
-
-        <input type="hidden" asp-for="EmployeeID" />
+        <input type="hidden" asp-for="EmployeeID"/>
         @if (ViewBag.Action == "View")
         {
             <a asp-action="Edit" asp-route-employeeId="@Model.EmployeeID" class="btn btn-primary">Edit</a>
@@ -42,4 +41,3 @@
 
     </form>
 </div>
-

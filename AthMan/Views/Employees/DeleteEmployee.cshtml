@@ -7,7 +7,7 @@
     <h4>@Model.Name - ID: @Model.EmployeeID</h4>
 
     <form asp-action="Delete" method="post">
-        <input type="hidden" asp-for="EmployeeID" />
+        <input type="hidden" asp-for="EmployeeID"/>
         <button type="submit" class="btn btn-primary">Delete</button>
         <a asp-action="Employees" class="btn btn-primary">Cancel</a>
     </form>

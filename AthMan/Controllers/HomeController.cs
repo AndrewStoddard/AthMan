@@ -5,17 +5,16 @@ namespace AthMan.Controllers
 {
     public class HomeController : Controller
     {
-        private AthManContext context { get; set; }
         public HomeController(AthManContext ctx)
         {
-            this.context = ctx;
+            context = ctx;
         }
+
+        private AthManContext context { get; }
+
         public IActionResult Index()
         {
             return View();
         }
-
-      
-
     }
 }

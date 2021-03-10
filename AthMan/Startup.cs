@@ -1,11 +1,10 @@
+using AthMan.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
-using Microsoft.EntityFrameworkCore;
-using AthMan.Models;
 
 namespace AthMan
 {
@@ -27,7 +26,8 @@ namespace AthMan
                 options.UseSqlServer(
                     Configuration.GetConnectionString("AthMan")));
 
-            services.AddRouting(options => {
+            services.AddRouting(options =>
+            {
                 options.LowercaseUrls = true;
                 options.AppendTrailingSlash = true;
             });
@@ -46,6 +46,7 @@ namespace AthMan
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -56,8 +57,8 @@ namespace AthMan
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    "default",
+                    "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
