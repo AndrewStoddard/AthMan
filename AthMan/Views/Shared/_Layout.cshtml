@@ -7,13 +7,40 @@
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .active {
-            background-color: skyblue !important;
-            border-color: skyblue !important;
+        .active.navitem {
+            background-color: white !important;
+            border-color: blueviolet !important;
+            color: black;
+            border-left: 8px purple solid;
+        }
+        .active  {
+            background-color: white !important;
+            border-color: blueviolet !important;
             color: black;
         }
-        a { color: black }
-        a:hover { color: blue; }
+        a {
+            color: blueviolet;
+        }
+        .card {
+            border: 2px purple solid;
+
+        }
+        a:hover { color: purple; }
+        .jumbotron {
+            background: blueviolet;
+            color: white;
+
+        }
+        .btn-outline-primary {
+            background: white;
+            color: blueviolet;
+            border: 1px purple solid;
+        }
+        .btn-outline-primary:hover {
+            background: blueviolet;
+            color: white;
+            border: 1px white solid;
+        }
         
 
         .list-group-item { background: white; }
@@ -30,31 +57,32 @@
     </div>
 </header>
 <div class="container-fluid">
-    <div class="row row-cols-md-2 row-cols-sm-1">
+    <div class="row row-cols-sm-2">
         <div class="col-md-2">
             <nav>
                 <ul class="list-group flex-sm-column flex-row">
-                    <li class="list-group-item @(ViewData["Title"] == "Index" ? "active" : "")">
+                    <li class="list-group-item @(ViewData["Title"] == "Index" ? "active" : "") navitem">
                         <a asp-controller="Home" asp-action="Index">Home</a>
                     </li>
-                    <li class="list-group-item @(ViewData["Title"] == "Items" ? "active" : "")">
+                    <li class="list-group-item @(ViewData["Title"] == "Items" ? "active" : "") navitem">
                         <a asp-controller="Items" asp-action="Items">Items</a>
                     </li>
-                    <li class="list-group-item @(ViewData["Title"] == "Employees" ? "active" : "")">
+                    <li class="list-group-item @(ViewData["Title"] == "Employees" ? "active" : "") navitem">
                         <a asp-controller="Employees" asp-action="Employees">Employees</a>
                     </li>
-                    <li class="list-group-item @(ViewData["Title"] == "Clients" ? "active" : "")">
+                    <li class="list-group-item @(ViewData["Title"] == "Clients" ? "active" : "") navitem">
                         <a asp-controller="Clients" asp-action="Clients">Clients</a>
                     </li>
-                    <li class="list-group-item @(ViewData["Title"] == "Incidents" ? "active" : "")">
+                    <li class="list-group-item @(ViewData["Title"] == "Incidents" ? "active" : "") navitem">
                         <a asp-controller="Incidents" asp-action="Incidents">Incidents</a>
                     </li>
                 </ul>
 
             </nav>
         </div>
-        <div class="col-10">
+        <div class="col-md-10">
             @RenderBody()
+
         </div>
 
     </div>

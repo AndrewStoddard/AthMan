@@ -4,20 +4,21 @@
     ViewData["Title"] = "Employees";
 }
 
-<div class="row row-cols-1 row-cols-lg-6 row-cols-sm-2 row-cols-md-4">
+<div class="row row-cols-sm-2">
     @foreach (var emp in Model)
     {
-        <a asp-action="View" asp-controller="Employees" asp-route-employeeId="@emp.EmployeeID">
-            <div class="card h-100 col">
+        <div class="col-sm-12 col-md-6 col-lg-2">
+            <a asp-action="View" asp-controller="Employees" asp-route-employeeId="@emp.EmployeeID" class="card mt-0 mb-5 mx-2">
                 <div class="card-body">
                     <h5 class="card-title">@emp.Name</h5>
                     <p class="card-text">@emp.Email</p>
                 </div>
-            </div>
-        </a>
+            </a>
+        </div>
+        
     }
 
 </div>
 <div class="container-fluid" style="margin-top: 20px;">
-    <a class="btn btn-outline-primary" asp-action="Add" asp-controller="Employees">Add New</a>
+    <a class="btn btn-outline-primary btn-lg" asp-action="Add" asp-controller="Employees">Add New</a>
 </div>

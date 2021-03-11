@@ -49,14 +49,14 @@
         <input type="hidden" asp-for="ClientID"/>
         @if (ViewBag.Action == "View")
         {
-            <a asp-action="Edit" asp-route-clientId="@Model.ClientID" class="btn btn-outline-primary">Edit</a>
-            <a asp-action="Delete" asp-route-clientId="@Model.ClientID" class="btn btn-outline-primary">Delete</a>
-            <a asp-action="Clients" class="btn btn-outline-primary">Back</a>
+            <a asp-action="Edit" asp-route-clientId="@Model.ClientID" class="btn btn-outline-primary btn-lg">Edit</a>
+            <a asp-action="Delete" asp-route-clientId="@Model.ClientID" class="btn btn-outline-primary btn-lg">Delete</a>
+            <a asp-action="Clients" class="btn btn-outline-primary btn-lg">Back</a>
         }
         else
         {
-            <button type="submit" class="btn btn-outline-primary">@ViewBag.Action</button>
-            <a asp-action="Clients" class="btn btn-outline-primary">Cancel</a>
+            <button type="submit" class="btn btn-outline-primary btn-lg">@ViewBag.Action</button>
+            <a asp-action="Clients" class="btn btn-outline-primary btn-lg">Cancel</a>
         }
 
     </form>
